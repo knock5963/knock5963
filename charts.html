@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+<head>
+    <title> knock! - Charts </title>
+    <link href="style/bootstrap.min.css" media="all" rel="stylesheet" />
+    <link href="style/knock.css" media="all" rel="stylesheet" />
+    <link href="style/knockon.css" media="all" rel="stylesheet" />
+    <link href="style/font-co.css" media="all" rel="stylesheet" />
+    <script src="script/jquery.min.js"></script>
+    <script src="script/bootstrap.min.js"></script>
+    <script src="script/csv.min.js"></script>
+    <script src="script/echarts.min.js"></script>
+    <script src="script/echarts.newmacarons.js"></script>
+    <script src="script/knock.js"></script>
+    <script src="script/knock-data.js"></script>
+    <script src="script/qrcode.min.js"></script>
+</head>
+
+<body class="page-header-fixed bg-main">
+    <div class="modal-shiftfix">
+        <div class="navbar navbar-fixed-top scroll-hide">
+            <div class="container-fluid top-bar">
+                <div class="pull-right">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown notifications hidden-xs">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span aria-hidden="true" class="knockon-compass"></span>
+                                <div class="sr-only"> お知らせ </div>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">
+                                        <div class="notifications label label-info"> 4/19 </div>
+                                        <p> ver.1904 完了しました。 </p>
+                                    </a> </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown qrcode hidden-xs">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span aria-hidden="true" class="knockon-qrcode"></span>
+                                <div class="sr-only"> QRコード </div>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><div id="page_qr"> </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <form class="navbar-form form-inline col-lg-2 hidden-xs" onsubmit="alert('工事中でございます');return false;"> <input class="form-control" placeholder="検索（実装されない）">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <button class="navbar-toggle">
+                    <span class="icon-bar"></span><span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="logo" href="index.html"><span style="font-family: 'Carter One', Helvetica, Arial, sans-serif;">knock!</span></a>
+            </div>
+
+            <div class="container-fluid main-nav clearfix">
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li><a href="index.html"><span aria-hidden="true" class="knockon-home"></span>Home</a> </li>
+                        <li><a class="current" href="charts.html"> <span aria-hidden="true" class="knockon-stats-bars"></span>Charts</a> </li>
+                        <li><a href="calendar.html"> <span aria-hidden="true" class="knockon-table"></span>Calendar</a> </li>
+                        <li><a href="info.html"> <span aria-hidden="true" class="knockon-info"></span>Info</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid main-content">
+            <div class="page-title">
+                <h1> Charts / 図表 </h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                  <ul class="list-group">
+                    <li class="list-group-item active">
+                      <a data-toggle="tab" href="#tab_month">
+                        <p><span class="badge"></span><i class="knockon-bars"> </i>月別人数</p>
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a data-toggle="tab" href="#tab_monthavg">
+                        <p><span class="badge"></span><i class="knockon-bars"> </i>月別平均人数</p>
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a data-toggle="tab" href="#tab_lastyear">
+                        <p><span class="badge"></span><i class="knockon-bars"> </i>当月平均前年度比</p>
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a data-toggle="tab" href="#tab_season">
+                        <p><span class="badge"></span><i class="knockon-bars"> </i>シーズン別平均人数</p>
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a data-toggle="tab" href="#tab_overall">
+                        <p><span class="badge"></span><i class="knockon-graph"> </i>イベント全体</p>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="tab_month">
+                        <div class="widget-container fluid-height">
+                            <div class="widget-content padded">
+                                <div class="chart-widget" id="chart_month">
+                                    1
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="tab_monthavg">
+                        <div class="widget-container fluid-height">
+                            <div class="widget-content padded">
+                                <div class="chart-widget" id="chart_monthavg">
+                                    1a
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="tab_lastyear">
+                        <div class="widget-container fluid-height">
+                            <div class="widget-content padded">
+                                <div class="chart-widget" id="chart_lastyear">
+                                    3
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="tab_season">
+                        <div class="widget-container fluid-height">
+                            <div class="widget-content padded">
+                                <div class="chart-widget" id="chart_season">
+                                    2
+                                </div>
+                                <div>* 「春」は 3 月から、「冬」は当年 12 月から翌年 2 月までとして集計する。</div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="tab_overall">
+                        <div class="widget-container fluid-height">
+                            <div class="widget-content padded">
+                                <div class="chart-widget" id="chart_overall">
+                                    4
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

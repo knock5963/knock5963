@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+<head>
+    <title> knock! - Home </title>
+    <link href="style/bootstrap.min.css" media="all" rel="stylesheet" />
+    <link href="style/knock.css" media="all" rel="stylesheet" />
+    <link href="style/knockon.css" media="all" rel="stylesheet" />
+    <link href="style/font-co.css" media="all" rel="stylesheet" />
+    <script src="script/jquery.min.js"></script>
+    <script src="script/bootstrap.min.js"></script>
+    <script src="script/skycons.js"></script>
+    <script src="script/csv.min.js"></script>
+    <script src="script/echarts.min.js"></script>
+    <script src="script/echarts.newmacarons.js"></script>
+    <script src="script/knock.js"></script>
+    <script src="script/knock-home.js"></script>
+    <script src="script/qrcode.min.js"></script>
+</head>
+
+<body class="page-header-fixed bg-main">
+    <div class="modal-shiftfix">
+        <div class="navbar navbar-fixed-top scroll-hide">
+            <div class="container-fluid top-bar">
+                <div class="pull-right">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown notifications hidden-xs">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span aria-hidden="true" class="knockon-compass"></span>
+                                <div class="sr-only"> お知らせ </div>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">
+                                        <div class="notifications label label-info"> 4/19 </div>
+                                        <p> ver.1904 完了しました。 </p>
+                                    </a> </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown qrcode hidden-xs">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span aria-hidden="true" class="knockon-qrcode"></span>
+                                <div class="sr-only"> QRコード </div>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><div id="page_qr"> </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <form class="navbar-form form-inline col-lg-2 hidden-xs" onsubmit="alert('工事中でございます');return false;"> <input class="form-control" placeholder="検索（実装されない）">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <button class="navbar-toggle">
+                    <span class="icon-bar"></span><span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="logo" href="index.html"><span style="font-family: 'Carter One', Helvetica, Arial, sans-serif;">knock!</span></a>
+            </div>
+
+            <div class="container-fluid main-nav clearfix">
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li><a class="current" href="index.html"><span aria-hidden="true" class="knockon-home"></span>Home</a> </li>
+                        <li><a href="charts.html"> <span aria-hidden="true" class="knockon-stats-bars"></span>Charts</a> </li>
+                        <li><a href="calendar.html"> <span aria-hidden="true" class="knockon-table"></span>Calendar</a> </li>
+                        <li><a href="info.html"> <span aria-hidden="true" class="knockon-info"></span>Info</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid main-content">
+            <div class="page-title">
+                <h1> Home / ホーム </h1>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="widget-container weather">
+                        <div class="widget-content padded">
+                            <div class="row text-center">
+                                <div class="col-sm-12 col-md-12 col-lg-12 today">
+                                    <p style="font-size: 18px; font-weight: 900;"> 次のレギュラーイベント（ <span id="weather_date">- / -</span> ）</p> <canvas class="skycons-element" data-skycons="" height="100" id="weather-icon" width="100"></canvas>
+                                    <div class="number"> <span id="weather_temp_high">-</span><small>&deg;</small> </div>
+                                    <div class="number-sm hidden-md hidden-sm hidden-xs"> / <span id="weather_temp_low">-</span><small>&deg;</small> </div>
+                                    <p class="location"> * 当日変わる場合もある </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="widget-container small nextsp">
+                        <div class="heading"> <i class="knockon-leaf"> </i>最近のスペーシャルイベント</div>
+                        <div class="widget-content padded">
+                            <div class="col-sm-1 col-md-1 col-lg-1 quotes-o"><i class="knockon-quotes-left"> </i></div>
+                            <div class="col-sm-10 col-md-10 col-lg-10 row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 main-info">
+                                    <div id="spevent_title"> - </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 detail-info">
+                                    <div id="spevent_detail"> - </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 addition-info">
+                                    <i class="knockon-mapmarker"> </i>
+                                    <span id="spevent_place"> - </span>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 addition-info">
+                                    <i class="knockon-clock"> </i>
+                                    <span id="spevent_time"> - </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-1 col-md-1 col-lg-1 quotes-r"><i class="knockon-quotes-right"> </i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 hidden-sm hidden-xs">
+                    <div class="widget-container small">
+                        <div class="heading">_(:3」∠)_</div>
+                        <div class="widget-content padded">
+                            <div>
+                                    <div>　☆ *　. 　☆</div>
+                                    <div>　　. ∧＿∧　∩　* ☆</div>
+                                    <div>* ☆ ( ・∀・)/ .</div>
+                                    <div>　. ⊂　　 ノ* ☆</div>
+                                    <div>☆ * (つ ノ .☆　　</div>
+                                    <div>　　 (ノ</div>
+                                    <div>　〜 散歩しましょう 〜</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget-container">
+                        <div class=heading> <i class="knockon-stats-dots"> </i>最近１０回レギュラーイベント参加人数</div>
+                        <div class="widget-content padded">
+                            <div class="chart-widget" id="chart_last10"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
