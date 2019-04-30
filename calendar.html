@@ -32,6 +32,10 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">
+                                    <div class="notifications label label-info"> 5/4 </div>
+                                    <p> ver.1905 更新しました。 </p>
+                                </a> </li>
+                                <li><a href="#">
                                     <div class="notifications label label-info"> 4/19 </div>
                                     <p> ver.1904 完了しました。 </p>
                                 </a> </li>
@@ -80,6 +84,26 @@
                     <div class="widget-container fluid-height clearfix">
                         <div class="widget-content padded">
                             <div id="calendar"></div>
+                            <a id="showDetail" class="btn btn-primary btn" data-toggle="modal" href="#eventDetail" style="display: none;"> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="eventDetail">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header"> <button aria-hidden="true" class="close" data-dismiss="modal"
+                                type="button">&times;</button>
+                            <h4 class="modal-title" id="evtModalTitle"> </h4>
+                        </div>
+                        <div class="modal-body">
+                            <h1 id="evtTitle"> </h1> <p id="evtType" style="margin-top: -10px;"> </p>
+                            <p id="evtDetail"> </p>
+                            <p> <i class="knockon-mapmarker"> </i> <span id="evtPlace"> </span> </p>
+                            <p> <i class="knockon-clock"> </i> <span id="evtTime"> </span> </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default-outline" data-dismiss="modal" type="button">わかった</button>
                         </div>
                     </div>
                 </div>
